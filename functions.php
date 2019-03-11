@@ -15,9 +15,13 @@ function university_features(){
   // register_nav_menu('footerLocationOne','Footer Location One');
   // register_nav_menu('footerLocationTwo','Footer Location Two');
   add_theme_support('title-tag');
+  add_theme_support('post-thumbnails');
 }
 
 add_action('after_setup_theme', 'university_features');
+
+
+// Can be set in mu-plugins for accessiblility
 
 function university_post_types(){
   // Event Post Type
@@ -54,7 +58,7 @@ function university_post_types(){
 
     // Professor Post Type
     register_post_type('professor', array(
-      'supports'          => array('title','editor'),
+      'supports'          => array('title','editor','thumbnail'),
       'public'            =>  true,
       'labels'            =>  array(
         'name'            =>  'Professors',

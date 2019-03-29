@@ -5,16 +5,25 @@ class Search {
 		this.openButton = $('.js-search-trigger');
 		this.closeButton = $('.search-overlay__close');
 		this.searchOverlay = $('.search-overlay');
+		this.searchField = $('#search-term');
 		this.isOverlayOpen = false;
 		this.events();
+		this.typingTimer;
 	}
 
 	events() {
 		this.openButton.on('click', this.openOverlay.bind(this));
 		this.closeButton.on('click', this.closeOverlay.bind(this));
-		$(document).on('keyup', this.keyPressDispatcher.bind(this));
+		$(document).on('keydown', this.keyPressDispatcher.bind(this));
+		this.searchField.on('keydown', this.typingLogic.bind(this));
 	}
 
+	typingLogic() {
+		clearTimeout(this.typingTimer);
+		this.typingTimer = setTimeout(function() {
+			console.log('Testingtimer');
+		}, 2000);
+	}
 	openOverlay() {
 		this.searchOverlay.addClass('search-overlay--active');
 		$('body').addClass('body-no-scroll');

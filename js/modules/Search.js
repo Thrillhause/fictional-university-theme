@@ -40,8 +40,14 @@ class Search {
 		this.previousValue = this.searchField.val();
 	}
 	getResults() {
-		this.resultsDiv.html('Imagine real search results here...');
-		this.isSpinnerVisible = false;
+		$.getJSON('http://thrillhausework.local/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
+			this.resultsDiv.html(`
+			<h2 class="search-overlay__section-title">General Information</h2>
+			<uln class="link-list min-list">
+				${posts.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+			</ul>
+			`);		
+		})
 	}
 	openOverlay() {
 		this.searchOverlay.addClass('search-overlay--active');

@@ -70,8 +70,10 @@ function university_post_types(){
 
     // Note Post Type
     register_post_type('note', array(
-      'show_in_rest'      => true,
-      'supports'          => array('title','editor'),
+      'capability_type'   =>  'note',
+      'map_meta_cap'      =>  true,
+      'show_in_rest'      =>  true,
+      'supports'          =>  array('title','editor'),
       'public'            =>  false,
       'show_ui'           =>  true,
       'labels'            =>  array(

@@ -3,12 +3,18 @@
 // Break into INC later
 // require get_theme_file_path('/inc/func.php');
 
+// Search route
 
 require get_theme_file_path('/inc/search-route.php');
 
 // Can be set in mu-plugins for accessiblility. 
 
-require get_theme_file_path('./inc/customPostType.php');
+require get_theme_file_path('/inc/customPostType.php');
+
+// Like functions
+
+require get_theme_file_path('/inc/like-route.php');
+
 
 function university_custom_rest(){
   register_rest_field('post','authorName',array(

@@ -2,6 +2,7 @@
 
 add_action('rest_api_init','universityRegisterSearch');
 
+// Cyustom Rest API Search
 function universityRegisterSearch(){
     register_rest_route('university/v1', 'search', array(
         'methods'   =>  WP_REST_SERVER::READABLE,

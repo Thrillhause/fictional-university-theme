@@ -17,7 +17,7 @@ function university_post_types(){
         'singular_name'   =>  'Campus'
       ),
       'menu_icon' =>  'dashicons-location-alt'
-    ));
+  ));
   
   // Event Post Type
   register_post_type('event', array(
@@ -100,7 +100,23 @@ function university_post_types(){
       ),
       'menu_icon' =>  'dashicons-heart'
     ));
-
+    
+    // Slider Post Type
+    register_post_type('slide', array(
+      'supports'          => array('title'),
+      'rewrite'           =>  array('slug' => 'slides'),
+      'show_ui'           =>  true,
+      'public'            =>  true,
+      'labels'            =>  array(
+        'name'            =>  'Homepage Slideshow',
+        'add_new_items'   =>  'Add New Slide',
+        'edit_item'       =>  'Edit Slide',
+        'all_items'       =>  'All Slides',
+        'singular_name'   =>  'Slide'
+      ),
+      'menu_icon' =>  'dashicons-slides'
+  ));
+    
 }
 
 add_action('init', 'university_post_types');
